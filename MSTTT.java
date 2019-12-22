@@ -88,7 +88,7 @@ import java.io.*;
 			public static void main(String[] args) 
 			{ 
 				MST t = new MST(); 
-				int graph[][] = new int[][] { { 0, 0, 2, 5, 4, 0 , 0 , 0 }, 
+				int graph[][] = new int[][] 				{ { 0, 0, 2, 5, 4, 0 , 0 , 0 }, 
 											{   0, 2, 0, 2, 0, 0 , 7 , 0 }, 
 											{   0, 5, 2, 0, 1, 3 , 4 , 0 }, 
 											{   0, 4, 0, 1, 0, 4 , 0 , 0 }, 
