@@ -6,12 +6,14 @@ import java.io.*;
 
 		
 		class MST { 
-			// Number of vertices in the graph 
-			public static final int V = 7 ; 
+			
+			// get number of vertices in the graph from the user
+			public static Scanner s = new Scanner (System.in);
+			public static final int V = s.nextInt();
 
 			// A utility function to find the vertex with minimum key 
 			// value, from the set of vertices not yet included in MST 
-			int minKey(int key[], Boolean mstSet[]) 
+			static int minKey(int key[], Boolean mstSet[]) 
 			{ 
 				// Initialize min value 
 				int min = Integer.MAX_VALUE, min_index = -1; 
@@ -27,7 +29,7 @@ import java.io.*;
 
 			// A utility function to print the constructed MST stored in 
 			// parent[] 
-			void printMST(int parent[], int graph[][]) 
+			static void printMST(int parent[], int graph[][]) 
 			{ 
 				System.out.println("Edge \tWeight"); 
 				for (int i = 1; i < V; i++) 
@@ -36,7 +38,7 @@ import java.io.*;
 
 			// Function to construct and print MST for a graph represented 
 			// using adjacency matrix representation 
-			void primMST(int graph[][]) 
+			 static void primMST(int graph[][]) 
 			{ 
 				// Array to store constructed MST 
 				int parent[] = new int[V]; 
@@ -87,16 +89,34 @@ import java.io.*;
 
 			public static void main(String[] args) 
 			{ 
-				MST t = new MST(); 
-				int graph[][] = new int[][] 				{ { 0, 0, 2, 5, 4, 0 , 0 , 0 }, 
-											{   0, 2, 0, 2, 0, 0 , 7 , 0 }, 
-											{   0, 5, 2, 0, 1, 3 , 4 , 0 }, 
-											{   0, 4, 0, 1, 0, 4 , 0 , 0 }, 
-											{   0, 0, 0, 3, 4, 0 , 1 , 7 },
-											{   0, 0, 7, 4, 0, 1 , 0 , 5 },
-											{   0, 0, 0, 0, 0, 7 , 5 , 0 } };
-											 
+					Scanner input = new Scanner (System.in);
 
+					System.out.println("ENTER HOW MANY CONNECTIONS BETWEEN NODES");
+					int y= input.nextInt();
+					
+				MST t = new MST(); 
+				int graph[][] = new int[V][V] ;
+				
+						/* A GRAPH FOR EXAMPLE
+						 
+											{ { 0, 2, 4, 5, 0, 0 , 0}, 
+											{   2, 0, 0, 2, 7, 0 , 0}, 
+											{   4, 0, 0, 1, 0, 4 , 0}, 
+											{   5, 2, 1, 0, 0, 3 , 0}, 
+											{   7, 0, 0, 4, 0, 1 , 5},
+											{   0, 0, 4, 3, 1, 0 , 7},
+											{   0, 0, 0, 0, 5, 7 , 0} };
+							*/				
+
+						for (int i = 1 ; i<=V ; i++) {
+							for ( int j = 1 ; j<=V ; j++) {
+								System.out.println("enter element  "
+										+  i + "  and  " + j + " in the table");
+								graph [i-1][j-1]= input.nextInt();
+
+						}
+						}
+											
 				t.primMST(graph); 				// Print the solution 
 			} 
 		} 
